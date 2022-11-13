@@ -1,0 +1,11 @@
+C:\Users\fasda\source\repos\AntLengtonOptimozation\bin\Debug\AntLengtonOptimozation.exe.config
+C:\Users\fasda\source\repos\AntLengtonOptimozation\bin\Debug\AntLengtonOptimozation.exe
+C:\Users\fasda\source\repos\AntLengtonOptimozation\bin\Debug\AntLengtonOptimozation.pdb
+C:\Users\fasda\source\repos\AntLengtonOptimozation\obj\Debug\AntLengtonOptimozation.csproj.AssemblyReference.cache
+C:\Users\fasda\source\repos\AntLengtonOptimozation\obj\Debug\AntLengtonOptimozation.csproj.SuggestedBindingRedirects.cache
+C:\Users\fasda\source\repos\AntLengtonOptimozation\obj\Debug\AntLengtonOptimozation.Form1.resources
+C:\Users\fasda\source\repos\AntLengtonOptimozation\obj\Debug\AntLengtonOptimozation.Properties.Resources.resources
+C:\Users\fasda\source\repos\AntLengtonOptimozation\obj\Debug\AntLengtonOptimozation.csproj.GenerateResource.cache
+C:\Users\fasda\source\repos\AntLengtonOptimozation\obj\Debug\AntLengtonOptimozation.csproj.CoreCompileInputs.cache
+C:\Users\fasda\source\repos\AntLengtonOptimozation\obj\Debug\AntLengtonOptimozation.exe
+C:\Users\fasda\source\repos\AntLengtonOptimozation\obj\Debug\AntLengtonOptimozation.pdb
