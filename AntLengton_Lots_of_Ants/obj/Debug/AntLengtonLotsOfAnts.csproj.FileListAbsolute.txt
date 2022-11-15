@@ -1,0 +1,11 @@
+C:\Users\fasda\source\GitHub\Новая папка\AntLengton_Lots_of_Ants\bin\Debug\AntLengtonLotsOfAnts.exe.config
+C:\Users\fasda\source\GitHub\Новая папка\AntLengton_Lots_of_Ants\bin\Debug\AntLengtonLotsOfAnts.exe
+C:\Users\fasda\source\GitHub\Новая папка\AntLengton_Lots_of_Ants\bin\Debug\AntLengtonLotsOfAnts.pdb
+C:\Users\fasda\source\GitHub\Новая папка\AntLengton_Lots_of_Ants\obj\Debug\AntLengtonLotsOfAnts.csproj.AssemblyReference.cache
+C:\Users\fasda\source\GitHub\Новая папка\AntLengton_Lots_of_Ants\obj\Debug\AntLengtonLotsOfAnts.csproj.SuggestedBindingRedirects.cache
+C:\Users\fasda\source\GitHub\Новая папка\AntLengton_Lots_of_Ants\obj\Debug\AntLengtonOptimozation.Form1.resources
+C:\Users\fasda\source\GitHub\Новая папка\AntLengton_Lots_of_Ants\obj\Debug\AntLengtonLotsOfAnts.Properties.Resources.resources
+C:\Users\fasda\source\GitHub\Новая папка\AntLengton_Lots_of_Ants\obj\Debug\AntLengtonLotsOfAnts.csproj.GenerateResource.cache
+C:\Users\fasda\source\GitHub\Новая папка\AntLengton_Lots_of_Ants\obj\Debug\AntLengtonLotsOfAnts.csproj.CoreCompileInputs.cache
+C:\Users\fasda\source\GitHub\Новая папка\AntLengton_Lots_of_Ants\obj\Debug\AntLengtonLotsOfAnts.exe
+C:\Users\fasda\source\GitHub\Новая папка\AntLengton_Lots_of_Ants\obj\Debug\AntLengtonLotsOfAnts.pdb
