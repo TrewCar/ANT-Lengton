@@ -30,7 +30,7 @@ namespace AntLengtonOptimozation
             {1,0},
         };
 
-        int[,] Ants; // массив с маравьями, с значениями
+        InformationAnt[] Ants; // массив с маравьями, с значениями
 
         int ants; // колво муравьёв
 
@@ -79,7 +79,7 @@ namespace AntLengtonOptimozation
         private void timer1_Tick(object sender, EventArgs e)
         {
             for (int i = 0; i < ants; i++)
-                ProvPixelColorAndMoveAnt(ref Ants[i, 0], ref Ants[i, 1], ref Ants[i, 2], new SolidBrush(Color.FromArgb(Ants[i, 3], Ants[i, 4], Ants[i, 5]))); // Обработка каждого муравья
+                ProvPixelColorAndMoveAnt(ref Ants[i].MovePos, ref Ants[i].xPos, ref Ants[i].yPos, new SolidBrush(Color.FromArgb(Ants[i].R, Ants[i].G, Ants[i].B))); // Обработка каждого муравья
 
 
             pictureBox1.Refresh();
@@ -101,20 +101,33 @@ namespace AntLengtonOptimozation
             ColVoY = pictureBox1.Height / SizeRect;
 
             LocInf = new int[ColVoX, ColVoY];
-            Ants = new int[ants, 6];
+            Ants = new InformationAnt[ants];
 
             for (int i = 0; i < ants; i++)
             {
-                Ants[i, 0] = 0;
-                Ants[i, 1] = rand.Next(0, ColVoX);  //местоположение по оси X
-                Ants[i, 2] = rand.Next(0, ColVoY);  //местоположение по оси Y
+                Ants[i].MovePos = 0;
 
-                Ants[i, 3] = rand.Next(30, 230);
-                Ants[i, 4] = rand.Next(30, 230);  //Индексы цветов по RGB
-                Ants[i, 5] = rand.Next(30, 230);
+                Ants[i].xPos = rand.Next(0, ColVoX); //местоположение по оси X
+                Ants[i].yPos = rand.Next(0, ColVoY); //местоположение по оси Y
+
+                Ants[i].R = rand.Next(30, 230);  //
+                Ants[i].G = rand.Next(30, 230);  //Индексы цветов по RGB
+                Ants[i].B = rand.Next(30, 230);  //
             }
             timer1.Start();
             groupBox1.Visible = false;
         }
+    }
+
+    struct InformationAnt
+    {
+        public int MovePos;
+
+        public int xPos;
+        public int yPos;
+
+        public int R;
+        public int G;
+        public int B;
     }
 }

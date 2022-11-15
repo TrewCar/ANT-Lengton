@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4F1C920D-0073-4DBD-A047-797425B54433}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>AntLengtonLotsOfAnts</RootNamespace>
-    <AssemblyName>AntLengtonLotsOfAnts</AssemblyName>
+    <RootNamespace>AntLengtonOptimozation</RootNamespace>
+    <AssemblyName>AntLengtonOptimozation</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
