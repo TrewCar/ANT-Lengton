@@ -20,7 +20,7 @@ namespace AntLengtonOptimozation
         private int ColVoX; //колво клетов по ширине  по высоте
         private int ColVoY;
 
-        private int[,] LocInf; // хранит 1 или 0 т.е. занчение цвета клетки
+        private Byte[,] LocInf; // хранит 1 или 0 т.е. занчение цвета клетки
 
         private int SizeRect;
 
@@ -70,10 +70,16 @@ namespace AntLengtonOptimozation
                 g.FillRectangle(Ant.color, Ant.Pos.X * SizeRect, Ant.Pos.Y * SizeRect, SizeRect, SizeRect);
             }
 
-            if (Ant.MovePos == 4)
-                Ant.MovePos = 0;
-            else if (Ant.MovePos == -1)
-                Ant.MovePos = 3;
+
+            ShiftMovePos(ref Ant.MovePos);
+        }
+
+        private void ShiftMovePos(ref int MovePos)
+        {
+            if (MovePos == 4)
+                MovePos = 0;
+            else if (MovePos == -1)
+                MovePos = 3;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -99,7 +105,7 @@ namespace AntLengtonOptimozation
             ColVoX = pictureBox1.Width / SizeRect;
             ColVoY = pictureBox1.Height / SizeRect;
 
-            LocInf = new int[ColVoX, ColVoY];
+            LocInf = new Byte[ColVoX, ColVoY];
             Ants = new InformationAnt[ants];
 
             for (int i = 0; i < ants; i++)
