@@ -17,12 +17,14 @@ namespace AntLengtonOptimozation
 
         Graphics g;
 
-        static int ColVoX; //колво клетов по ширине  по высоте
-        static int ColVoY;
+        private int ColVoX; //колво клетов по ширине  по высоте
+        private int ColVoY;
 
-        int[,] LocInf; // хранит 1 или 0 т.е. занчение цвета клетки
+        private int[,] LocInf; // хранит 1 или 0 т.е. занчение цвета клетки
 
-        readonly int[,] Posin = new int[,] // шаги 
+        private int SizeRect;
+
+        private readonly int[,] Posin = new int[,] // шаги 
         {
             {0,-1},
             {-1,0},
@@ -32,59 +34,56 @@ namespace AntLengtonOptimozation
 
         InformationAnt[] Ants; // массив с маравьями, с значениями
 
-        int ants; // колво муравьёв
+        private int ants; // колво муравьёв
 
-        private void ProvPos(ref int xPos, ref int yPos)
+        private void ProvPos(ref Point Pos)
         {
-            if (xPos == ColVoX)
-                xPos = 0;
+            if (Pos.X == ColVoX)
+                Pos.X = 0;
+            else if (Pos.X < 0)
+                Pos.X = ColVoX - 1;
 
-            else if (xPos < 0)
-                xPos = ColVoX - 1;
-
-            if (yPos == ColVoY)
-                yPos = 0;
-
-            else if (yPos < 0)
-                yPos = ColVoY - 1;
+            if (Pos.Y == ColVoY)
+                Pos.Y = 0;
+            else if (Pos.Y < 0)
+                Pos.Y = ColVoY - 1;
         }
 
-        private void ProvPixelColorAndMoveAnt(ref int MovePos, ref int xPos, ref int yPos, SolidBrush ColorPixel)
+        private void ProvPixelColorAndMoveAnt(ref InformationAnt Ant)
         {
-            xPos += Posin[MovePos, 0];
+            Ant.Pos.X += Posin[Ant.MovePos, 0];
 
-            yPos += Posin[MovePos, 1];
+            Ant.Pos.Y += Posin[Ant.MovePos, 1];
 
-            ProvPos(ref xPos, ref yPos);
+            ProvPos(ref Ant.Pos);
 
-            if (LocInf[xPos, yPos] == 1)
+            if (LocInf[Ant.Pos.X, Ant.Pos.Y] == 1)
             {
-                LocInf[xPos, yPos] = 0;
-                MovePos -= 1;
-                g.FillRectangle(Brushes.Black, xPos * SizeRect, yPos * SizeRect, SizeRect, SizeRect);
+                LocInf[Ant.Pos.X, Ant.Pos.Y] = 0;
+                Ant.MovePos -= 1;
+                g.FillRectangle(Brushes.Black, Ant.Pos.X * SizeRect, Ant.Pos.Y * SizeRect, SizeRect, SizeRect);
             }
-            else if (LocInf[xPos, yPos] == 0)
+            else if (LocInf[Ant.Pos.X, Ant.Pos.Y] == 0)
             {
-                LocInf[xPos, yPos] = 1;
-                MovePos += 1;
-                g.FillRectangle(ColorPixel, xPos * SizeRect, yPos * SizeRect, SizeRect, SizeRect);
+                LocInf[Ant.Pos.X, Ant.Pos.Y] = 1;
+                Ant.MovePos += 1;
+                g.FillRectangle(Ant.color, Ant.Pos.X * SizeRect, Ant.Pos.Y * SizeRect, SizeRect, SizeRect);
             }
 
-            if (MovePos == 4)
-                MovePos = 0;
-            else if (MovePos == -1)
-                MovePos = 3;
+            if (Ant.MovePos == 4)
+                Ant.MovePos = 0;
+            else if (Ant.MovePos == -1)
+                Ant.MovePos = 3;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             for (int i = 0; i < ants; i++)
-                ProvPixelColorAndMoveAnt(ref Ants[i].MovePos, ref Ants[i].xPos, ref Ants[i].yPos, new SolidBrush(Color.FromArgb(Ants[i].R, Ants[i].G, Ants[i].B))); // Обработка каждого муравья
-
+                ProvPixelColorAndMoveAnt(ref Ants[i]); // Обработка каждого муравья 
 
             pictureBox1.Refresh();
         }
-        int SizeRect;
+
         private void button1_Click(object sender, EventArgs e)
         {
             Random rand = new Random();
@@ -107,12 +106,9 @@ namespace AntLengtonOptimozation
             {
                 Ants[i].MovePos = 0;
 
-                Ants[i].xPos = rand.Next(0, ColVoX); //местоположение по оси X
-                Ants[i].yPos = rand.Next(0, ColVoY); //местоположение по оси Y
+                Ants[i].Pos = new Point(rand.Next(0, ColVoX), rand.Next(0, ColVoY));
 
-                Ants[i].R = rand.Next(30, 230);  //
-                Ants[i].G = rand.Next(30, 230);  //Индексы цветов по RGB
-                Ants[i].B = rand.Next(30, 230);  //
+                Ants[i].color = new SolidBrush(Color.FromArgb(rand.Next(30, 230), rand.Next(30, 230), rand.Next(30, 230)));
             }
             timer1.Start();
             groupBox1.Visible = false;
@@ -123,11 +119,8 @@ namespace AntLengtonOptimozation
     {
         public int MovePos;
 
-        public int xPos;
-        public int yPos;
+        public Point Pos;
 
-        public int R;
-        public int G;
-        public int B;
+        public SolidBrush color;
     }
 }
